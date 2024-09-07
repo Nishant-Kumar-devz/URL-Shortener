@@ -1,7 +1,3 @@
-# URL-Shortener
-A simple URL shortener built with Node.js and Express. Shorten, track, and manage URLs with ease.
----
-
 # URL Shortener
 
 A simple and efficient URL shortener built with Node.js and Express. This project allows users to shorten long URLs into shorter, more manageable links. It’s perfect for integrating with applications or services where URL length is a concern or for tracking URL analytics.
