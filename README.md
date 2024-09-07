@@ -1,52 +1,86 @@
+
 # URL Shortener
 
-A simple and efficient URL shortener built with Node.js and Express. This project allows users to shorten long URLs into shorter, more manageable links. It’s perfect for integrating with applications or services where URL length is a concern or for tracking URL analytics.
+**URL Shortener** is a Node.js application that allows users to shorten long URLs into more manageable and shareable links. It leverages MongoDB for data storage and provides a simple API for generating and managing short URLs.
 
 ## Features
 
-- **Shorten URLs**: Convert long URLs into short, easily shareable links.
-- **Analytics**: Track the number of clicks on shortened URLs.
-- **RESTful API**: Provides a RESTful API for integrating with other services.
-- **Easy Setup**: Simple to set up and deploy with minimal configuration.
+- **Generate Short URLs**: Convert long URLs into shortened versions.
+- **Redirect Short URLs**: Redirect users to the original URL when they visit a shortened link.
+- **View Shortened Links**: Retrieve a list of all shortened URLs and their corresponding original URLs.
 
-## Installation
+## Technologies Used
 
-1. Clone the repository:
+- **Node.js**: Runtime environment for executing JavaScript code server-side.
+- **Express**: Web framework for building the API.
+- **MongoDB**: NoSQL database for storing URL mappings.
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js.
+- **dotenv**: Module for loading environment variables from a `.env` file.
+
+## Setup
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [MongoDB](https://www.mongodb.com/) installed and running locally or a MongoDB Atlas account
+
+### Installation
+
+1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/Nishant-Kumar-devz/URL-Shortener.git
+   git clone https://github.com/your-username/URL-Shortener.git
    ```
 
-2. Navigate to the project directory:
+2. **Navigate to the Project Directory**
 
    ```bash
-   cd url-shortener
+   cd URL-Shortener
    ```
 
-3. Install dependencies:
+3. **Install Dependencies**
 
    ```bash
    npm install
    ```
 
-4. Start the server:
+4. **Set Up Environment Variables**
+
+   Create a `.env` file in the root directory of the project with the following content:
+
+   ```env
+   MONGO_URI=mongodb://127.0.0.1:27017/short-url
+   ```
+
+   Replace the `MONGO_URI` value with your MongoDB connection string if using a different setup or MongoDB Atlas.
+
+5. **Start the Application**
 
    ```bash
    npm start
    ```
 
-5. The application will be available at `http://localhost:4001` (or your configured port).
+   The server will start and listen on port 4001.
+
+## Usage
+
+- **Generate Short URL**: Send a POST request to `/url` with the original URL in the request body.
+- **Redirect Short URL**: Access a shortened URL, and it will redirect to the original URL.
 
 ## API Endpoints
 
-- **POST `/url`**: Shorten a new URL.
-- **GET `/url/:shorturl`**: Redirect to the original URL based on the short alias.
-- **GET `/url/analytics/:shorturl`**: Retrieve analytics for a specific shortened URL.
+- `POST /url`: Create a new short URL.
+  - Request body: `{ "originalUrl": "https://example.com" }`
+  - Response: `{ "shortUrl": "http://localhost:4001/abc123" }`
+
+- `GET /url/:shortId`: Redirect to the original URL based on the short URL identifier.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request with your changes. For major changes, open an issue to discuss what you’d like to change.
+Contributions are welcome! Please open an issue or submit a pull request to help improve the project.
 
-## Contact
+## License
 
-For questions or support, please open an issue or contact me at nishantkumardevz@gmail.com.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
