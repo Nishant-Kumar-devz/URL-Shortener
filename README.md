@@ -75,6 +75,9 @@
 
 - `GET /url/:shortId`: Redirect to the original URL based on the short URL identifier.
 
+
+- `GET /url/analytics/:shortId`: Get analytics like total clicks and etc.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request to help improve the project.
